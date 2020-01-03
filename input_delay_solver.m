@@ -22,11 +22,15 @@
 % returns 4 objects:
 
 % 1. t (the time series). Type: array.
-% 2. x (the state). Type: matrix (specifically, an n by T matrix, where n
-% is the dimension of the state and T is the number of elements in the time
-% series. The columns of this matrix give the state values at the corresponding time step).
+% 2. x (the states). Type: matrix. Remark: Specifically, an n*N by T matrix, where n
+% is the dimension of the state, N is the number of agents,
+% and T is the number of elements in the time series.
+% The columns of this matrix give the state values at the corresponding time steps.
+% Furthermore, the individual agent states are stacked, i.e., at a given time step, x = [x1; ...; xN].
+% You can get the individual states at all times by writing x_1 = x(1:n,:), x_2 = (n+1:2*n,:),
+% and so on.
 % 3. x_r (the state of the exosystem). Type: matrix (same structure as
-% above).
+% above, except n by T).
 % 4. u (the input). Type: matrix (same structure as above).
 %
 % NOTE: Make sure to download the initial_conditions.m and
