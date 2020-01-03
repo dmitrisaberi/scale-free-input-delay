@@ -19,12 +19,7 @@
     % conditions go. The next 2*N*n variables, xhat_1, ..., xhat_N, 
     % chi_1, ..., chi_N can have any arbitrary continuous initial
     % conditions. The final n variables, x_r, again have no restrictions.
-    %
-    % The REAL initial conditions are ONLY for the agents x_1, ..., x_N.
-    % The other ones (chi, xhat, x_r) do not affect the synchronization in 
-    % any way. We suggest setting them to constant functions on
-    % [-tau_bar, 0], for the sake of simplicity, as is done below.
-    
+  
      function s = initial_conditions(t)
         % define your parameters here *explicitly*. To get them,
         % run the above get_params function on your agent model
