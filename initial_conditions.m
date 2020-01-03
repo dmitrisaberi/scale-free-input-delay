@@ -3,7 +3,9 @@
     % infinite-dimensional (due to the delays), the initial conditions
     % are that of a function on [-tau_bar, 0]. We set it to zero
     % for all times prior to -tau_bar. You must give initial conditions
-    % in the following format for our solver to work.
+    % in the following format for our solver to work. Make sure to define
+    % them with the proper dimensions, depending on N,n and if it is
+    % full or partial-state coupling.
     %
     % Full State: You will define a function from 
     % [- tau_bar, 0] -> R^{2*N*n + n}. The first N*n variables of the
@@ -20,27 +22,29 @@
     % chi_1, ..., chi_N can have any arbitrary continuous initial
     % conditions. The final n variables, x_r, again have no restrictions.
   
-     function s = initial_conditions(t)
-        % define your parameters here *explicitly*. To get them,
-        % run the above get_params function on your agent model
-        % and delays.
+    function s = initial_conditions(t)
+        % define your parameters here *explicitly*. tau_bar
+        % is always necessary to define (since the function
+        % is only nonzero on [-tau_bar,0]), but N,n are only
+        % necessary if you refer to them below.
         N = 3;
         n = 3;
         tau_bar = 0.3;
         % this parameter is 2 in the full-state case, 3 in the 
-        % partial-state case. Delete it if you do not like this
-        % syntax.
+        % partial-state case. Delete it if you do not make
+        % use of it below.
         alpha = 2;
-         s = zeros(alpha*N*n+n,1);
-           if t >= - tau_bar
+        s = zeros(alpha*N*n+n,1);
+        if t >= - tau_bar
                % Do not change the structure of the function.
-               % *Only* edit inside of here, as it must be 0
-               % outside of [-tau_bar, 0]. This DC signal initial 
-               % condition is included here as a placeholder.
-               for i = 1:alpha*N*n+n
+               % Insert your initial conditions *here*, in this if
+               % statement, and don't change the structure
+               % of the function (including the initialization
+               % of s above).
+            for i = 1:alpha*N*n+n
                    s(i) = i;
-               end
-           end
-     end
+            end
+        end
+    end
      
            
