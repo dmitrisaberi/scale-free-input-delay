@@ -3,7 +3,7 @@
 % 1. The agent model: A, B, C. Types: matrices.
 % 2. An upper bound on the delays: tau_bar. Type: positive number.
 % 
-% From this information, protocol_design picks parameters that will
+% From this information, protocol_design picks data that will
 % go into the protocol described in the Scale-Free input delay paper. 
 % Our metric of performance is given by speed of synchronization, i.e., 
 % how quickly the agents x_i converge to the exosystem x_r. Typically,
@@ -13,7 +13,7 @@
 % (taubar_max) through the solvability condition given in the paper
 % (Equation (16)). Then, we check that the given tau_bar is strictly less
 % than taubar_max. If the problem is solvable, we design the protocol,
-% returning the following parameters:
+% returning the following data:
 
 % 1. epsilon. Type: positive number.
 % 2. rho. Type: positive number.
@@ -21,7 +21,7 @@
 % 4. P. Type: positive definite matrix.
 % 5. K. Type: matrix.
 
-% NOTE: This algorithm is meant to generate valid parameters (epsilon, rho) 
+% NOTE: This algorithm is meant to generate valid (epsilon, rho),
 % given any agent model and valid upper bound on delays. We make no claim
 % that this choice is optimal for convergence. In fact, you may often
 % find that choosing epsilon larger than we give here will make performance
