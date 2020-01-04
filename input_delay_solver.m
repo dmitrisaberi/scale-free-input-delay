@@ -51,9 +51,9 @@ function [t x x_r u] = input_delay_solver(A,B,C, taus, initial_conditions, ...
     
     % extract dimensions from data (i.e., N, n, q)
     sz1 = size(A);
-    N = sz1(1);
+    n = sz1(1);
     sz2 = size(A_script);
-    n = sz2(1);
+    N = sz2(1);
     sz3 = size(C);
     q = sz3(1);
 
